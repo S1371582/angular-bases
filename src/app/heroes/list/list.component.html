@@ -1,0 +1,33 @@
+<h3>Listado de heroes</h3>
+
+<!-- Si deleteHero se cumple se muestra el borrado. Si no se cumple -else- se muestra el templete nombrado: nothingWasDeleted-->
+<div *ngIf=" deteteHero ; else nothingWasDeleted">
+<h3> Héroe borrado: <small class="text-danger"> {{ deteteHero }} </small> </h3>
+</div>
+
+<ng-template #nothingWasDeleted>
+<h3>No se ha borrado nada</h3>
+</ng-template>
+
+<!-- El botón se va a mostrar únicamente y si, solo si, el largo de los elementos del array es mayor a 0-->
+<button *ngIf=" heroesNames.length > 0 "
+  (click)="removeLastHero()"
+  class="btn btn-outline-danger">
+  Borrar último héroe
+</button>
+
+<!-- Clase del css del bootstrap añadido al index.html-->
+<ul class="mt-2 list-group">
+  <li
+  *ngFor="let name of heroesNames"
+  class="list-group-item"> {{ name }} </li>
+  <!-- Hecho con un array en el ts lo que sería esto:
+  <li class="list-group-item">Ironman</li>
+  <li class="list-group-item">Hulk</li>
+  <li class="list-group-item">Thor</li>  -->
+
+
+
+
+
+</ul>
